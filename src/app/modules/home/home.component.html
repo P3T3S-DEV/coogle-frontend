@@ -1,0 +1,28 @@
+<navbar></navbar>
+<div class="row">
+    <div class="col-sm-2">
+        <h1>Lateral bar</h1>
+    </div>
+    <div class="col-sm-7">
+        <h1>Content</h1>
+    </div>
+    <div class="col-sm-3">
+        <div id="container" class="d-flex align-items-center flex-column">
+            <div id="chat-header" class="d-flex justify-content-center">
+                <h2>Chat</h2>
+            </div>
+            
+            <div id="chat-messages">
+                    <p *ngFor="let message of listMessages">
+                        {{message}}
+                    </p>
+            </div>
+            <div id="button-group" class="mt-auto py-3">
+                <div class="input-group">
+                    <textarea #inputMessage type="text" class="form-control" aria-label="User input message" aria-describedby="Input textarea for send message" placeholder="Ingrese su mensaje"></textarea>
+                    <button class="btn btn-outline-danger" type="button" (pointerdown)="submitMessage()">Enviar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
