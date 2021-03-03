@@ -1,0 +1,50 @@
+$red-color: #dc3545;
+$blue-color: #1f9cdb;
+
+.bg {
+  width: 100vh;
+  height: 100vh;
+}
+img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+h1 {
+  font-size: 6rem;
+  font-weight: bold;
+  color: $red-color;
+}
+
+#header {
+  position: absolute;
+  left: 3%;
+  right: 0;
+  top: 30%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 145vh;
+}
+
+#login {
+  color: white;
+  font-weight: bold;
+  margin: 0.1rem 1rem;
+  font-size: 1.3rem;
+  position: absolute;
+  right: 0;
+  text-decoration: none;
+  letter-spacing: 1px;
+}
+
+#login:hover {
+  color: $blue-color;
+  transform: translateY(-2px);
+}

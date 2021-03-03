@@ -1,0 +1,52 @@
+$red-ligth: #f7f5f8;
+$red-border: #dc3545;
+$blue-color: #1f9cdb;
+
+h1 {
+  margin: 2.5rem 0;
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+#content {
+  background-color: $red-ligth;
+  border-radius: 20px;
+  width: 70vh;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input {
+  background-color: white;
+  width: 80%;
+  &:focus {
+    border-color: $red-ligth;
+    box-shadow: 0 0 0 0.2rem rgba(225, 122, 132, 1);
+  }
+}
+
+button {
+  font-weight: 600;
+  &:hover {
+    transform: translateY(-1.5px);
+  }
+}
+
+span {
+  display: block;
+  font-size: 0.8rem;
+  &:hover {
+    transform: translateY(-0.3px);
+  }
+}
+
+a {
+  text-align: center;
+  color: $red-border;
+  text-decoration: none;
+  &:hover {
+    color: $blue-color;
+  }
+}

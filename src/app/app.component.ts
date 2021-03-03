@@ -1,21 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { ChatService } from './http/chat.service';
+import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  selector: 'root',
+  templateUrl: './app.component.html'
 })
-export class AppComponent implements OnInit{
-  title = 'coogle-frontend';
-
-  constructor(private chatService: ChatService){}
-
-  ngOnInit(){
-    this.chatService.listen('test').subscribe((data)=>{
-      console.log(data);
-    })
-
-    this.chatService.emit('message', "datica enviada");
-  }
-}
+export class AppComponent{}

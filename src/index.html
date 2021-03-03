@@ -1,68 +1,14 @@
-<!-- index.html -->
-<!DOCTYPE html>
-<html ng-app="demoApp">
+<!doctype html>
+<html lang="en">
 <head>
-  <!-- SCROLLS -->
-  <!-- load bootstrap and fontawesome via CDN -->
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
-
-  <!-- SPELLS -->
-  <!-- load angular via CDN -->
-
+  <meta charset="utf-8">
+  <title>Coogle | Chat</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="Description" content="Chat in real time with Angular 11 and Socket.io">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 </head>
-
-<body ng-controller="mainCtrl">
-    <!-- HEADER AND NAVBAR -->
-    <header>
-        <nav class="navbar navbar-default">
-        <div class="container">
-            <div class="navbar-header">
-                <a class="navbar-brand" href="/">Jose Pirobo</a>
-            </div>
-
-            <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#about"><i class="fa fa-shield"></i> About</a></li>
-                <li><a href="#contact"><i class="fa fa-comment"></i> Contact</a></li>
-            </ul>
-        </div>
-        </nav>
-    </header>
-
-    <!-- MAIN CONTENT AND INJECTED VIEWS -->
-    <div id="main">
-
-        <!-- angular templating -->
-        <!-- this is where content will be injected -->
-
-        <div class="container px-4">
-          <div class="row gx-5">
-            <div class="col">
-             <div class="p-3 border bg-light">Custom column padding</div>
-            </div>
-            <div class="col">
-              <div class="p-3 border bg-light">Custom column padding</div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card" style="width: 18rem;">
-        <img src="img/gallery-img-01.jpg" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="btn btn-primary">Go somewhere</a>
-        </div>
-      </div>
-
-
-    <!-- FOOTER -->
-    <footer class="text-center">
-        <hr>
-        <strong>- KaiKreations -</strong>
-    </footer>
-
+<body onLoad="window.scroll(0,0)">
+  <root></root>
 </body>
-
 </html>
