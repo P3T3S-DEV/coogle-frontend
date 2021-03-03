@@ -1,28 +1,27 @@
 <navbar></navbar>
-<div class="row">
-    <div class="col-sm-2">
-        <h1>Lateral bar</h1>
+<a id="login"
+[routerLink]="['/auth/signin']" aria-label="Auth login for users"> Login</a>
+<div id="bg">
+    <div id="header">
+        <h1> REALTIME CHAT</h1>
     </div>
-    <div class="col-sm-7">
-        <h1>Content</h1>
-    </div>
-    <div class="col-sm-3">
-        <div id="container" class="d-flex align-items-center flex-column">
-            <div id="chat-header" class="d-flex justify-content-center">
-                <h2>Chat</h2>
-            </div>
-            
-            <div id="chat-messages">
-                    <p *ngFor="let message of listMessages">
-                        {{message}}
-                    </p>
-            </div>
-            <div id="button-group" class="mt-auto py-3">
-                <div class="input-group">
-                    <textarea #inputMessage type="text" class="form-control" aria-label="User input message" aria-describedby="Input textarea for send message" placeholder="Ingrese su mensaje"></textarea>
-                    <button class="btn btn-outline-danger" type="button" (pointerdown)="submitMessage()">Enviar</button>
-                </div>
-            </div>
-        </div>
-    </div>
+    <img 
+    srcset="
+         https://i.ibb.co/xmTJmsP/chat-320w.webp 320w,
+         https://i.ibb.co/WzGTWs1/chat-375w.webp 375w,
+         https://i.ibb.co/Tg1tDGR/chat-425w.webp 425w,
+         https://i.ibb.co/m01R46L/chat-768w.webp 768w,
+         https://i.ibb.co/JKkHKYM/chat-1024w.webp 1024w,
+         https://i.ibb.co/489FzMk/chat-1440w.webp 1440w,
+         https://i.ibb.co/V9RFqkJ/chat-2560w.webp 2560w"
+      sizes="(max-width: 320px) 320px,
+             (max-width: 375px) 375px,
+             (max-width: 425px) 425px,
+             (max-width: 768px) 768px,
+             (max-width: 1024px) 1024px,
+             (max-width: 1440px) 1440px,
+             (max-width: 2560px) 2560px,
+             1024px"
+      src="https://i.ibb.co/JKkHKYM/chat-1024w.webp"
+      alt="background developer image">
 </div>
