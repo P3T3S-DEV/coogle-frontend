@@ -27,8 +27,7 @@ export class YoutubeComponent implements OnInit {
   public loading: boolean;
   public hasError: boolean;
   public errorMessage: string;
-
-
+  
   constructor(
     private _searchVideo: YoutubeService,
     private dom: DomSanitizer) {
@@ -50,22 +49,22 @@ export class YoutubeComponent implements OnInit {
   }
 
   searchVideo() {
-    this._searchVideo.searchVideo(this.getInputVideoName?.value).subscribe(
-      video => {
-        let thumbnails = video.items[0].snippet.thumbnails;
-        this.hasError = false;
-        this.youtubeVideoID = video.items[0].id.videoId;
-        this.thumbnails.push(thumbnails.default.url, thumbnails.medium.url, thumbnails.high.url);
-        this.videoTitle = video.items[0].snippet.title;
-        this.youtubeVideo = `${this.baseEmbededVideo}${this.youtubeVideoID}`;
-        this.loading = false;
-      },
-      error => {
-        this.loading = true;
-        this.hasError = true;
-        this.errorMessage = error;
-      }
-    );
+     this._searchVideo.searchVideo(this.getInputVideoName?.value).subscribe(
+       video => {
+         let thumbnails = video.items[0].snippet.thumbnails;
+         this.hasError = false;
+         this.youtubeVideoID = video.items[0].id.videoId;
+         this.thumbnails.push(thumbnails.default.url, thumbnails.medium.url, thumbnails.high.url);
+         this.videoTitle = video.items[0].snippet.title;
+         this.youtubeVideo = `${this.baseEmbededVideo}${this.youtubeVideoID}`;
+         this.loading = false;
+       },
+       error => {
+         this.loading = true;
+         this.hasError = true;
+         this.errorMessage = error;
+       }
+     );
   }
 
   getYoutubeVideoSanitized() {
