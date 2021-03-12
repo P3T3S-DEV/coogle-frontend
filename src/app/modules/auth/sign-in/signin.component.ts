@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SigninService } from 'src/app/http/auth/signin/signin.service';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,25 +9,52 @@ import { Router } from '@angular/router';
   styleUrls: ['./signin.component.scss']
 })
 export class SigninComponent{
-  
+
+   public errorMessage: string = "";
+   public hasError: boolean = false;
+
    signinForm = new FormGroup({
-    username: new FormControl(''),
-    password: new FormControl(''),
+    username: new FormControl('',[
+    Validators.required,
+    Validators.minLength(4),
+    Validators.maxLength(20)]),
+    password: new FormControl('',[
+    Validators.required,
+    Validators.minLength(4),
+    Validators.maxLength(20)
+    ]),
   });
   constructor(
     private _signinService: SigninService,
-    private router: Router
+    private router: Router,
   ) { }
+  get getInputUsername(){
+    return this.signinForm.get('username');
+  }
+  get getInputPassword() {
+    return this.signinForm.get('password');
+  }
 
-  /*manage on error request */
   sendSignin(){
     this._signinService.postSignin(
-      this.signinForm.get('username')?.value,
-      this.signinForm.get('password')?.value,
-    ).subscribe(data =>{
-      localStorage.setItem('username', this.signinForm.get('username')?.value);
-      localStorage.setItem('token', data.token);
-       this.router.navigateByUrl('/chat');
+      this.getInputUsername?.value,
+      this.getInputPassword?.value,
+    ).subscribe(
+      data =>{
+        this.hasError = false;
+        localStorage.setItem('username', data.user.username);
+        localStorage.setItem('token', data.token);
+        this.router.navigateByUrl('/chat');
+    },
+    error =>{
+      this.errorMessage = error;
+      this.hasError = true;
+      this.router.navigateByUrl('/auth/signin');
     });
+    this.router.navigateByUrl('/chat');
+  }
+
+  timing(){
+    setTimeout(()=>this.hasError = false, 5000);
   }
 }
