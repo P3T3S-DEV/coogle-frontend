@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ChatGuard } from './guards/chat/chat.guard';
 
 @NgModule({
   declarations: [
@@ -13,6 +14,9 @@ import { AppComponent } from './app.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
+  ],
+  providers: [
+    ChatGuard
   ],
   bootstrap: [AppComponent]
 })
