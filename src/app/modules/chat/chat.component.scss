@@ -1,5 +1,8 @@
 $red-ligth: #e17a84;
 $white-ligth: #f7f5f8;
+$red-color: #dc3545;
+$white-gray: #EBEBEB;
+
 .row {
   width: 100%;
 }
@@ -52,11 +55,10 @@ button {
   height: 67%;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
-}
-
-#chat-messages::-webkit-scrollbar {
-  width: 0; /* Remove scrollbar space */
-  background: transparent; /* Optional: just make scrollbar invisible */
+  &::-webkit-scrollbar{
+    width: 0; 
+    background: transparent; 
+  }
 }
 
 p {
@@ -68,7 +70,44 @@ p {
 }
 
 small {
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
-  font-size: 0.65rem;
+  padding: 0.5rem 0;
+  margin: 0 1rem;
+  font-size: 0.6rem;
+  justify-content: flex-end;
+}
+
+#chat-message{
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  border-radius: 15px;
+  border-color: $red-color;
+  margin-bottom: 0.8rem;
+  border-style: dashed solid solid solid;
+}
+
+p{
+  padding: 0.4rem 0.2rem;
+  
+}
+
+span{
+  font-size: 0.7rem;
+  margin: 0 5vh;
+  color: $red-color;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.end{
+  justify-content: flex-end;
+}
+
+
+.newcolor{
+  background-color: $white-gray;
+}
+
+.rowend{
+  justify-content: start;
 }
