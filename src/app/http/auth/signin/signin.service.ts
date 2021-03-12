@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
+import { catchError, retry } from 'rxjs/operators';
 import { Signin } from 'src/app/models/auth/sign-in.model'
 import { environment } from 'src/environments/environment';
 
@@ -9,28 +10,50 @@ import { environment } from 'src/environments/environment';
 })
 export class SigninService {
   readonly baseUrl: string = environment.BASE_API_URL;
-  private headers = { 'content-type': 'application/json'} 
+  private headers = { 'content-type': 'application/json' }
 
   constructor(
     private readonly _http: HttpClient
   ) { }
 
-  public postSignin(username: string, password: string): Observable<Signin>{
+  public postSignin(username: string, password: string): Observable<Signin> {
     let user = {
       username,
       password
     }
     let body = JSON.stringify(user);
-    return this._http.post<Signin>(this.baseUrl + "auth/signin", body, {'headers': this.headers});
+    return this._http.post<Signin>(this.baseUrl + "auth/signin", body, { 'headers': this.headers }).pipe(
+      retry(0),
+      catchError(this.handleError)
+    );
   }
 
-  public postSignup(username: string, email: string, password: string){
+  public postSignup(username: string, email: string, password: string) {
     let user = {
       username,
       email,
       password
     }
     let body = JSON.stringify(user);
-    return this._http.post<Signin>(this.baseUrl + "auth/signup", body, {'headers': this.headers});
+    return this._http.post<Signin>(this.baseUrl + "auth/signup", body, { 'headers': this.headers });
+  }
+
+  handleError(err: any) {
+    let errorMessage = '';
+    if (err.error instanceof ErrorEvent) {
+      errorMessage = `Error: ${err.status} web error`;
+    } else {
+      switch (err.status) {
+        case 404: {
+          errorMessage = `Error: ${err.status} User does not exist `;
+          break;
+        }
+        case 400: {
+          errorMessage = `Error: ${err.status} Invalid password`;
+          break;
+        }
+      }
+    }
+    return throwError(errorMessage);
   }
 }
