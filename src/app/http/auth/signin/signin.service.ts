@@ -24,21 +24,11 @@ export class SigninService {
     let body = JSON.stringify(user);
     return this._http.post<Signin>(this.baseUrl + "auth/signin", body, { 'headers': this.headers }).pipe(
       retry(0),
-      catchError(this.handleError)
+      catchError(this.handleErrorSignin)
     );
   }
-
-  public postSignup(username: string, email: string, password: string) {
-    let user = {
-      username,
-      email,
-      password
-    }
-    let body = JSON.stringify(user);
-    return this._http.post<Signin>(this.baseUrl + "auth/signup", body, { 'headers': this.headers });
-  }
-
-  handleError(err: any) {
+  
+  handleErrorSignin(err: any) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
       errorMessage = `Error: ${err.status} web error`;
