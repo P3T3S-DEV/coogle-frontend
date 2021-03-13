@@ -31,40 +31,23 @@ _Comandos:_
 
 - npm i
 
-- npm run start
+- npm run start o ng serve
 
 ```
-
-
-_Para obtener la documentación de la API ingresa a:_
-
-```
-localhost:3000/api/
-```
-
-## Deployment 📦
 
 
 ## Construido con 🛠️
 
 _Esta API fue construida con las siguientes herramientas_
 
-* [Nodejs](https://nodejs.org/es/) - Entorno de ejecución
+* [Angular](https://angular.io/) - Javascript Framework
 * [Npm](https://www.npmjs.com/) - Manejador de dependencias
 * [MongoDB](https://www.mongodb.com/) - Motor de Base de Datos
 * [HTML](https://www.w3schools.com/html/) - Hyper Text Markup Lenguage
-* [CSS](https://rometools.github.io/rome/) - Cascading style sheets
-* [cors](https://www.npmjs.com/package/cors) - CORS is a node.js package for providing a Connect/Express middleware that can be used to enable CORS with various options
-* [express](https://www.npmjs.com/package/express) - Fast, unopinionated, minimalist web framework for node.
-* [express-async-errors](https://www.npmjs.com/package/express-async-errors) - A dead simple ES6 async/await support hack for ExpressJS
-* [helmet](https://www.npmjs.com/package/helmet) - Helmet helps you secure your Express apps by setting various HTTP headers. 
-* [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - This was developed against draft-ietf-oauth-json-web-token-08. It makes use of node-jws
-* [mongoose-unique-validator](https://www.npmjs.com/package/mongoose-unique-validator) - mongoose-unique-validator is a plugin which adds pre-save validation for unique fields within a Mongoose schema.
-* [mongoose-autopopulate](https://www.npmjs.com/package/mongoose-autopopulate) - Always populate() certain fields in your mongoose schemas.
-* [mongoose](https://www.npmjs.com/package/mongoose) - Mongoose is a MongoDB object modeling tool designed to work in an asynchronous environment.
-* [morgan](https://www.npmjs.com/package/morgan) - HTTP request logger middleware for node.js
-* [path](https://www.npmjs.com/package/path) - This is an exact copy of the NodeJS ’path’ module published to the NPM registry.
-
+* [CSS](https://www.w3schools.com/css/) - Cascading style sheetsthat can be used to enable CORS with various optionssupport hack for ExpressJSHTTP headers. 
+* [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) - It makes use of node-jws is a plugin which adds pre-save validation for unique fields within a Mongoose schema in your mongoose schemas.in an asynchronous environment.
+* [Bootstrap](https://getbootstrap.com/) - CSS framework
+* [SCSS](https://sass-lang.com/) - CSS preprocessor
 
 ## Contribuyendo 🖇️
 
