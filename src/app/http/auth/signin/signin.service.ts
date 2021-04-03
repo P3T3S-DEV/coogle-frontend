@@ -35,12 +35,15 @@ export class SigninService {
     } else {
       switch (err.status) {
         case 404: {
-          errorMessage = `Error: ${err.status} User does not exist `;
+          errorMessage = `Error: ${err.status} - user does not exist `;
           break;
         }
         case 400: {
-          errorMessage = `Error: ${err.status} Invalid password`;
+          errorMessage = `Error: ${err.status} - invalid password`;
           break;
+        }
+        default:{
+          errorMessage = `Error: ${err.status} - invalid request`;
         }
       }
     }

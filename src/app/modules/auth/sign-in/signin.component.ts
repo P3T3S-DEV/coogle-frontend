@@ -1,7 +1,6 @@
 import { Component} from '@angular/core';
 import { SigninService } from 'src/app/http/auth/signin/signin.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -10,8 +9,10 @@ import { Router } from '@angular/router';
 })
 export class SigninComponent {
 
-  public errorMessage: string = "";
-  public hasError: boolean = false;
+  public errorMessage: string;
+  public hasError: boolean;
+  
+  public modalDisplay: string = "none";
 
   signinForm = new FormGroup({
     username: new FormControl('', [
@@ -26,9 +27,11 @@ export class SigninComponent {
   });
 
   constructor(
-    private _signinService: SigninService,
-    private router: Router,
-  ) { }
+    private _signinService: SigninService
+  ) { 
+    this.errorMessage = "Request error";
+    this.hasError = true;
+  }
   get getInputUsername() {
     return this.signinForm.get('username');
   }
@@ -45,18 +48,20 @@ export class SigninComponent {
         this.hasError = false;
         localStorage.setItem('username', data.user.username);
         localStorage.setItem('token', data.token);
-        this.router.navigateByUrl('/chat');
+        this.openDialog();
       },
       error => {
         this.errorMessage = error;
         this.hasError = true;
-        this.router.navigateByUrl('/auth/signin');
+        this.openDialog();
       });
-    this.router.navigateByUrl('/chat');
   }
 
-  timing() {
-    setTimeout(() => this.hasError = false, 5000);
+  openDialog(){
+    this.modalDisplay = "block"
   }
 
+  closeDialog(){
+    this.modalDisplay = "none";
+  }
 }

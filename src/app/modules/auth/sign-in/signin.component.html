@@ -5,27 +5,17 @@
     <form [formGroup]="signinForm" (ngSubmit)="sendSignin()">
         <div class="pt-4">
             <div class="d-flex justify-content-center pb-3">
-                <input
-                formControlName="username" 
-                class="form-control"
-                type="text" 
-                placeholder="Username"
-                [ngClass]="{
+                <input formControlName="username" class="form-control" type="text" placeholder="Username" [ngClass]="{
                     'is-invalid': getInputUsername?.invalid,
                     'is-valid': getInputUsername?.valid}">
             </div>
             <div class="d-flex justify-content-center pb-2">
-                <input 
-                formControlName="password" 
-                class="form-control" 
-                type="password" 
-                placeholder="Password"
-                [ngClass]="{
+                <input formControlName="password" class="form-control" type="password" placeholder="Password" [ngClass]="{
                     'is-invalid': getInputPassword?.invalid,
                     'is-valid': getInputPassword?.valid}">
             </div>
-            <small *ngIf="this.signinForm.invalid"
-                class="d-flex justify-content-center">El nombre de usuario y la contraseña deben tener 4-20
+            <small *ngIf="this.signinForm.invalid" class="d-flex justify-content-center">El nombre de usuario y la
+                contraseña deben tener 4-20
                 carácteres, letras, números y/o espacios.</small>
         </div>
         <div class="d-flex justify-content-center py-4">
@@ -35,6 +25,37 @@
         <a href=""><span class="pb-4">Forgot password?</span></a>
     </form>
 </div>
-<div class="alert alert-danger d-flex justify-content-center mt-3" role="alert" *ngIf="hasError" >
-    {{errorMessage}}{{timing()}}
+
+<!-- The Modal -->
+<div id="myModal" class="modal" [style.display]="modalDisplay">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="row">
+            <div class="col-sm-4" *ngIf="hasError; else imgInvalid">
+                <img id="error-img" src="assets/error-img.png" alt="error">
+            </div>
+            <ng-template #imgInvalid>
+                <div class="col-sm-4">
+                    <img id="check-img" src="assets/check-img.png" alt="error">
+                </div>
+            </ng-template>
+
+            <div class="col-sm-7 mt-3" *ngIf="hasError; else validSignin">
+                <p>{{errorMessage}}</p>
+            </div>
+            <ng-template #validSignin>
+                <div class="col-sm-7 mt-3">
+                    <p>Correct login - ¡Welcome to Coogle!</p>
+                </div>
+            </ng-template>
+
+            <div class="col-sm-1" *ngIf="hasError; else navigationRow">
+                <span (click)="closeDialog()" class="close">&times;</span>
+            </div>
+            <ng-template class="col-sm-1" #navigationRow>
+                <span [routerLink]="['/chat']" class="close">&gt;</span>
+            </ng-template>
+        </div>
+    </div>
 </div>
