@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { ChatService } from 'src/app/http/chat/chat.service';
 
 @Component({
-  selector: 'app-chat',
+  selector: 'chat',
   templateUrl: './chat.component.html',
   styleUrls: ['./chat.component.scss']
 })

@@ -1,8 +1,7 @@
 <navbar></navbar>
 <div class="row">
     <div class="col-sm-2">
-        <h1>Lateral bar</h1> 
-        <button (click)="logout()"> logout</button>
+        <lateralbar></lateralbar>
     </div>
     <div class="col-sm-7">
         <youtube></youtube>
@@ -12,7 +11,7 @@
             <div id="chat-header" class="d-flex justify-content-center">
                 <h2>Chat</h2>
             </div>
-            
+
             <div id="chat-messages">
                 <div *ngFor="let message of listMessages; index as i">
                     <span [class.end]="validateActualUser(i)">{{listUsers[i]}}</span>
@@ -22,14 +21,21 @@
                             {{listDates[i] | date:'shortTime'}}
                         </small>
                     </div>
-                </div>   
+                </div>
             </div>
             <div id="button-group" class="mt-auto py-3">
                 <div class="input-group">
-                    <textarea #inputMessage type="text" class="form-control" aria-label="User input message" aria-describedby="Input textarea for send message" placeholder="Ingrese su mensaje"></textarea>
+                    <textarea #inputMessage type="text" class="form-control" aria-label="User input message"
+                        aria-describedby="Input textarea for send message" placeholder="Ingrese su mensaje"></textarea>
                     <button class="btn btn-outline-danger" type="button" (pointerdown)="submitMessage()">Enviar</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<a id="menu" class="button" aria-label="Menu navigation">
+    <img id="menu-img" src="assets/menu.svg" alt="Menu nav for users navigation">
+</a>
+<a id="logout" class="button" aria-label="Auth login for users" (click)="logout()">Logout</a>
+

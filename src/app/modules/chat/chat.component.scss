@@ -1,7 +1,8 @@
 $red-ligth: #e17a84;
 $white-ligth: #f7f5f8;
 $red-color: #dc3545;
-$white-gray: #EBEBEB;
+$white-gray: hsl(0, 0%, 92%);
+$blue-color: #1f9cdb;
 
 .row {
   width: 100%;
@@ -55,9 +56,9 @@ button {
   height: 67%;
   -ms-overflow-style: none; /* Internet Explorer 10+ */
   scrollbar-width: none; /* Firefox */
-  &::-webkit-scrollbar{
-    width: 0; 
-    background: transparent; 
+  &::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
   }
 }
 
@@ -76,7 +77,7 @@ small {
   justify-content: flex-end;
 }
 
-#chat-message{
+#chat-message {
   margin-left: auto;
   margin-right: auto;
   width: 85%;
@@ -86,12 +87,11 @@ small {
   border-style: dashed solid solid solid;
 }
 
-p{
+p {
   padding: 0.4rem 0.2rem;
-  
 }
 
-span{
+span {
   font-size: 0.7rem;
   margin: 0 5vh;
   color: $red-color;
@@ -99,15 +99,48 @@ span{
   margin-bottom: 0.3rem;
 }
 
-.end{
+.end {
   justify-content: flex-end;
 }
 
-
-.newcolor{
+.newcolor {
   background-color: $white-gray;
 }
 
-.rowend{
+.rowend {
   justify-content: start;
+}
+
+.button{
+  margin: 0.1rem 1rem;
+  color: white;
+  font-weight: bold;
+  font-size: 1.3rem;
+  text-decoration: none;
+  letter-spacing: 1px;
+  cursor: pointer;
+   &:hover {
+    color: $blue-color;
+    transform: translateY(-2px);
+  }
+}
+#logout {
+  position: absolute;
+  right: 0;
+  top: 0;
+  
+}
+
+#menu{
+  position: absolute;
+  top: 0;
+  transform: scale(1.5, 1);
+}
+
+#menu-img{
+  width: 16px;
+   &:hover {
+     width: 18px;
+    transform: translateY(-1.5px);
+  }
 }
