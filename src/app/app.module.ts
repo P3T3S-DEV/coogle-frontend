@@ -1,10 +1,11 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ChatGuard } from './guards/chat/chat.guard';
+import { AuthGuard } from './guards/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -13,10 +14,11 @@ import { ChatGuard } from './guards/chat/chat.guard';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [
-    ChatGuard
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
