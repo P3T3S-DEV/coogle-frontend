@@ -7,7 +7,7 @@ import { catchError, map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class ChatGuard implements CanActivate {
+export class AuthGuard implements CanActivate {
 
   private token: string;
 
@@ -23,15 +23,20 @@ export class ChatGuard implements CanActivate {
   }
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this._validateTokenService.getValidation(this.token).pipe(map((response) => {
-      if (response) {
-        return true;
-      }
-      this.router.navigate(['/auth/signin']);
-      return false;
-    }), catchError((error) => {
+    if (this.token == "" || this.token == null) {
       this.router.navigate(['/auth/signin']);
       return of(false);
-    }));
-  }
+    }else{
+      return this._validateTokenService.getValidation(this.token).pipe(map((response) => {
+        if (response) {
+          return true;
+        }
+        this.router.navigate(['/auth/signin']);
+        return false;
+      }), catchError((error) => {
+        this.router.navigate(['/auth/signin']);
+        return of(false);
+      }));
+    }
+    }
 }
