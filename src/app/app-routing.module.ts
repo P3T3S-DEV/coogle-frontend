@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { ChatGuard } from './guards/chat/chat.guard';
+import { AuthGuard } from './guards/auth/auth.guard';
+import { NotesModule } from './modules/notes/notes.module';
 
 const routes: Routes = [
   { 
@@ -10,11 +11,16 @@ const routes: Routes = [
   { 
     path: "chat",
     loadChildren: ()=> import('./modules/chat/chat.module').then(m => m.ChatModule),
-    canActivate: [ChatGuard]
+    canActivate: [AuthGuard]
   },
   { 
     path: "auth",
     loadChildren: ()=> import('./modules/auth/auth.module').then(m => m.AuthModule)
+  },
+  {
+    path: "notes",
+    loadChildren: ()=> import('./modules/notes/notes.module').then(m => NotesModule),
+    canActivate: [AuthGuard]
   },
   {
     path: '', redirectTo: 'home', pathMatch: 'full' 
