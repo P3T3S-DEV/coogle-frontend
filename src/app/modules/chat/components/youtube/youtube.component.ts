@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { YoutubeService } from 'src/app/http/youtube/youtube.service';
 
+
 @Component({
   selector: 'youtube',
   templateUrl: './youtube.component.html',
@@ -17,7 +18,7 @@ export class YoutubeComponent implements OnInit {
     ])
   })
 
-  public readonly baseEmbededVideo: string = "https://www.youtube-nocookie.com/embed/";
+  public readonly baseEmbededVideo: string = "https://www.youtube.com/embed/";
 
   public youtubeVideo: string;
   public youtubeVideoID: string;
@@ -47,7 +48,6 @@ export class YoutubeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   searchVideo() {
      this._searchVideo.searchVideo(this.getInputVideoName?.value).subscribe(
        video => {
@@ -70,4 +70,5 @@ export class YoutubeComponent implements OnInit {
   getYoutubeVideoSanitized() {
     return this.dom.bypassSecurityTrustResourceUrl(this.youtubeVideo);
   }
+  
 }
