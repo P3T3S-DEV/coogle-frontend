@@ -36,6 +36,35 @@
     </div>
 </div>
 
-<div class="alert alert-danger d-flex justify-content-center mt-3" role="alert" *ngIf="hasError">
-    {{errorMessage}}{{timing()}}
+<div id="myModal" class="modal" [style.display]="modalDisplay">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <div class="row">
+            <div class="col-sm-4" *ngIf="hasError; else imgInvalid">
+                <img id="error-img" src="assets/error-img.png" alt="error">
+            </div>
+            <ng-template #imgInvalid>
+                <div class="col-sm-4">
+                    <img id="check-img" src="assets/check-img.png" alt="error">
+                </div>
+            </ng-template>
+
+            <div class="col-sm-7 mt-3" *ngIf="hasError; else validSignin">
+                <p>{{errorMessage}}</p>
+            </div>
+            <ng-template #validSignin>
+                <div class="col-sm-7 mt-3">
+                    <p>{{username | titlecase}} created - ¡Welcome to Coogle!</p>
+                </div>
+            </ng-template>
+
+            <div class="col-sm-1" *ngIf="hasError; else navigationRow">
+                <span (click)="closeDialog()" class="close">&times;</span>
+            </div>
+            <ng-template class="col-sm-1" #navigationRow>
+                <span [routerLink]="['/auth/signin']" class="close">&gt;</span>
+            </ng-template>
+        </div>
+    </div>
 </div>

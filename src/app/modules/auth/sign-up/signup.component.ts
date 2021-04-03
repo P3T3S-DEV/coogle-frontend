@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { SigninService } from 'src/app/http/auth/signin/signin.service';
 import { SignupService } from 'src/app/http/auth/signup/signup.service';
 
 @Component({
-  selector: 'app-signup',
+  selector: 'signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
@@ -12,6 +11,7 @@ export class SignupComponent implements OnInit {
   signupForm = new FormGroup({
     email: new FormControl('', [
       Validators.required,
+      Validators.email,
       Validators.minLength(6),
       Validators.maxLength(50)
     ]),
@@ -35,11 +35,15 @@ export class SignupComponent implements OnInit {
   public errorMessage: string;
   public hasError: boolean; 
 
+  public modalDisplay: string = "none";
+  public username: string = "";
   constructor(
     private _signupService: SignupService
-  ) { 
+  ) {
+    this.modalDisplay = "none";
+    this.username = "";
     this.errorMessage = "";
-    this.hasError = false;
+    this.hasError = true;
   }
 
   ngOnInit(): void {
@@ -69,20 +73,27 @@ export class SignupComponent implements OnInit {
         this.getInputPassword?.value,
       ).subscribe(
         data => {
-          console.log(data);
+          this.hasError = false;
+          this.username = data.username;
+          this.openDialog();
         },
         error => {
           this.hasError = true;
           this.errorMessage = error;
-          console.log(error);
+          this.openDialog();
         })
     }else{
       this.hasError = true;
-      this.errorMessage = "passwords don't ​match"
+      this.errorMessage = "passwords don't ​match";
+      this.openDialog();
     }
   }
+  
+  openDialog() {
+    this.modalDisplay = "block"
+  }
 
-  timing() {
-    setTimeout(() => this.hasError = false, 5000);
+  closeDialog() {
+    this.modalDisplay = "none";
   }
 }
