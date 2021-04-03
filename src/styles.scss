@@ -1,3 +1,5 @@
+$red-ligth: #e17a84;
+
 html{
     margin: 0;
     padding: 0;
@@ -13,3 +15,6 @@ html{
 @import "node_modules/bootstrap/scss/input-group";
 @import "node_modules/bootstrap/scss/forms";
 @import "node_modules/bootstrap/scss/alert";
+@import "node_modules/bootstrap/scss/card";
+@import "node_modules/bootstrap/scss/tooltip";
+@import "node_modules/bootstrap/scss/tables";
