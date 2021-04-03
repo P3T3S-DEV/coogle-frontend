@@ -1,0 +1,99 @@
+<div id="notes">
+    <navbar></navbar>
+    <a id="logout" class="button" aria-label="Auth login for users" (click)="logout()">Logout</a>
+    <div class="row d-flex justify-content-center my-4">
+        <h1 id="title">Notes</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-2 mb-3">
+            <div class="row d-flex justify-content-center">
+                <h2 id="categories" class="mx-3">Categories</h2>
+            </div>
+            <accordion [isAnimated]="true" [closeOthers]="true" class="ml-2">
+                <accordion-group *ngFor="let group of groups; index as i" [heading]="group.title">
+
+                    <div class="row">
+                        <div class="col-sm-10">
+                            <h2>Add section</h2>
+                        </div>
+                        <div class="col-sm-2">
+                            <button id="button-add" type="submit"  class="btn btn-danger">
+                                <img id="plus-img" src="assets/plus.svg" alt="Add categorie image">
+                            </button>
+                        </div>
+                    </div>
+                    <!--   <form [formGroup]="categorieForm" (ngSubmit)="createCategorie()">
+                        <div class="row mb-3">
+                            <div class="col-sm-10">
+                                <div class="ml-2">
+                                    <input formControlName="title" class="form-control" type="text" placeholder="Categorie"
+                                        [ngClass]="{
+                                                                                                                                            'is-invalid': getInputTitle?.invalid,
+                                                                                                                                            'is-valid': getInputTitle?.valid}">
+                                </div>
+                    
+                    
+                            </div>
+                            <div class="col-sm-2 p-0">
+                                <button type="submit" id="button-add" class="btn btn-danger" tooltip="Add category" placement="top">
+                                    <img id="plus-img" src="assets/plus.svg" alt="Add categorie image">
+                                </button>
+                            </div>
+                        </div>
+                    </form> -->
+                </accordion-group>
+                <!--  <ul>
+                        <li><a class="list-li" href="">Math</a></li>
+                        <li><a class="list-li" href="">Spanish</a></li>
+                        <li><a class="list-li" href="">English</a></li>
+                    </ul> -->
+            </accordion>
+        </div>
+        <div id="table" class="col-sm-8">
+            <table class="table table-hover mt-2">
+                <thead class="table-secondary">
+                    <tr>
+                        <th class="row-header" scope="col">#</th>
+                        <th class="row-header" scope="col">Completed</th>
+                        <th class="row-header" scope="col">Name</th>
+                        <th class="row-header" scope="col">Description</th>
+                        <th class="row-header" scope="col">Files</th>
+                        <th class="row-header" scope="col">Creation date</th>
+                        <th class="row-header" scope="col">Last update</th>
+                        <th class="row-header" scope="col">Last update</th>
+                        <th class="row-header" scope="col">Last update</th>
+                        <th class="row-header" scope="col">Last update</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr (click)="rowPressed()">
+                        <th class="row-header" scope="row">1</th>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr (click)="rowPressed()">
+                        <th class="row-header" scope="row">2</th>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
